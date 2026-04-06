@@ -1,33 +1,173 @@
 # AI-to-Notion Clipper
 
-생성형 AI(ChatGPT, Claude, Gemini 등)와의 대화 내용을 드래그할 필요 없이 단축어 실행 한 번으로 Notion에 저장해 주는 macOS 전용 자동화 도구입니다.
+Save AI conversations from ChatGPT, Claude, and Gemini to Notion instantly with a single shortcut.
 
-## 주요 기능
-* **원클릭 클리핑:** 복잡한 복사/붙여넣기 과정 없이 단축어 실행만으로 현재 화면의 텍스트를 파싱하여 Notion 페이지에 전송합니다.
-* **GUI 자동 설치 마법사:** 백그라운드 파이썬 환경 세팅(venv, pip install) 및 환경 변수(.env) 설정을 도와주는 Mac 네이티브 앱(`Setup.app`)을 제공합니다.
-* **동적 경로 추적:** 스크립트가 설치된 위치를 자동으로 추적하여, 사용자가 프로젝트 폴더의 위치를 이동하더라도 단축어가 올바른 스크립트 경로를 찾아 실행됩니다.
+macOS automation tool for clipping AI conversations directly into Notion without copy-paste.
 
-## 사전 준비
-설치를 시작하기 전에 다음 두 가지 정보가 필요합니다.
-1. **Notion API Token:** Notion '내 통합(My integrations)' 페이지에서 발급받은 프라이빗 API 통합 시크릿
-2. **Notion Page ID:** 클리핑한 내용을 저장할 대상 노션 페이지 URL의 맨 끝 32자리 영문/숫자
-   * *주의: 해당 노션 페이지 우측 상단 '...' > '연결 추가' 메뉴에서 방금 만든 API 통합(Integration)을 반드시 페이지에 초대(연결)해야 합니다.*
+macOS only.
 
-## 설치 방법
+---
 
-1. **다운로드:** 본 저장소 우측의 **[Releases]** 탭에서 최신 버전의 `Setup.app.zip` 파일을 다운로드하고 압축을 해제합니다.
-2. **설치 앱 실행:** 압축 해제된 `Setup.app`을 더블클릭하여 실행합니다.
-   * *보안 경고 관련:* 애플 공식 개발자 서명이 되어있지 않아 "확인되지 않은 개발자가 배포한 앱입니다"라는 경고가 뜰 수 있습니다.
-3. **정보 입력:** 화면에 나타나는 다이얼로그 팝업의 안내에 따라 사전 준비한 Notion Token과 Page ID를 입력합니다.
-4. **단축어 연동:** 백그라운드 환경 세팅이 완료되면 자동으로 열리는 웹 브라우저 창에서 **[단축어 추가]** 버튼을 클릭하여 macOS 시스템에 단축어를 등록합니다.
+# ✨ Why This Tool?
 
-## 사용 방법
+When working with AI tools, useful insights often get buried in long conversations.  
+Manually copying and organizing them into Notion is repetitive and time-consuming.
 
-1. ChatGPT, Claude, Gemini 등의 웹페이지에서 저장하고 싶은 대화를 화면에 띄웁니다.
-2. macOS 단축어 앱에서 지정한 단축키를 누르거나 메뉴 막대에서 단축어를 실행합니다.
-3. 백그라운드에서 스크립트가 실행되며 자동으로 Notion 페이지에 대화 내용이 텍스트 블록 형태로 추가됩니다.
+**AI-to-Notion Clipper automates this workflow.**
 
-## 문제 해결 (Troubleshooting)
+Press a shortcut → The conversation is parsed → Sent to Notion automatically.
 
-* **단축어가 실행되지 않는 경우:** macOS 단축어 앱을 열고 추가된 스크립트의 설정에서 접근 권한(화면 읽기, 스크립트 실행 허용 등)이 정상적으로 부여되었는지 확인합니다.
-* **Notion에 데이터가 전송되지 않는 경우:** 코드가 정상적으로 실행되었으나 노션에 데이터가 없다면, 대상 노션 페이지에 API 통합(Integration)이 정상적으로 연결되어 있는지 재확인하시기 바랍니다.
+---
+
+# 🚀 Features
+
+### ⚡ One-Shortcut Clipping
+Save the current AI conversation to Notion instantly using a macOS shortcut.
+
+### 🤖 AI Conversation Parsing
+Automatically extracts visible text from ChatGPT, Claude, Gemini, and formats it for Notion.
+
+### 🧩 GUI Setup Wizard
+Includes a native **macOS Setup.app** that automatically:
+
+- creates Python virtual environment
+- installs dependencies
+- configures environment variables
+
+No terminal knowledge required.
+
+### 📦 Dynamic Script Path Detection
+Even if the project folder is moved, the script automatically detects the correct path and runs properly.
+
+---
+
+# 🛠 Requirements
+
+Before installation, prepare the following:
+
+### 1. Notion API Token
+Create a private integration at:
+
+https://www.notion.so/my-integrations
+
+Example format:
+
+```
+ntn_xxxxxxxxxxxxxxxxx
+```
+
+### 2. Notion Page ID
+
+The **32-character ID** at the end of the target Notion page URL.
+
+Example:
+
+```
+https://www.notion.so/workspace/AI-Clips-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
+Important:
+
+You must **share the Notion page with the integration**  
+via **"Add Connections"** in the page menu.
+
+---
+
+# ⚡ Quick Start
+
+### 1. Download Installer
+
+Go to **Releases** and download:
+
+```
+Setup.app.zip
+```
+
+Unzip the file.
+
+---
+
+### 2. Run Setup
+
+Double click:
+
+```
+Setup.app
+```
+---
+
+### 3. Enter Notion Credentials
+
+The installer will ask for:
+
+- Notion API Token
+- Notion Page ID
+
+The setup will automatically configure the environment.
+
+---
+
+### 4. Install Shortcut
+
+A browser window will open automatically.
+
+Click:
+
+```
+Add Shortcut
+```
+
+to install the macOS automation shortcut.
+
+---
+
+# 🧠 Usage
+
+1. Open ChatGPT / Claude / Gemini / etc.
+2. Navigate to the conversation you want to save
+3. Run the macOS shortcut
+
+The conversation will be automatically added to your **Notion page** as text blocks.
+
+---
+
+# 🧯 Troubleshooting
+
+### Shortcut does not run
+
+Open **macOS Shortcuts** and verify permissions:
+
+- screen reading access
+- script execution permission
+
+---
+
+### Data not appearing in Notion
+
+Check that your Notion page has been shared with the **integration**.
+
+```
+Page Menu → Add Connections → Select your Integration
+```
+
+---
+
+# 📌 Tech Stack
+
+- Python
+- Notion API
+- AppleScript
+- macOS Shortcuts
+- Python Virtual Environment (venv)
+
+---
+
+# 📄 License
+
+MIT License
+
+---
+
+# 👋 Author
+
+Built by **[Seyoung Oum](https://github.com/oumseyoung)**
