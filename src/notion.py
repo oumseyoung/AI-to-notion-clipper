@@ -4,8 +4,11 @@ import json
 from dotenv import load_dotenv
 from src.parser import parse_text_and_math
 
-# .env 파일 로드
-load_dotenv()
+# 현재 스크립트(notion.py) 위치를 기준으로 상위 폴더의 .env 절대 경로 찾기
+current_dir = os.path.dirname(os.path.abspath(__file__))
+env_path = os.path.join(os.path.dirname(current_dir), '.env')
+load_dotenv(dotenv_path=env_path)
+
 NOTION_TOKEN = os.getenv('NOTION_TOKEN')
 PAGE_ID = os.getenv('NOTION_PAGE_ID')
 
