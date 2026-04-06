@@ -38,7 +38,7 @@ def create_toggle_block(prompt, response_text):
                 "object": "block",
                 "type": "toggle",
                 "toggle": {
-                    "rich_text": [{"type": "text", "text": {"content": f"🕒 {current_time}"}}],
+                    "rich_text": [{"type": "text", "text": {"content": f"{current_time}"}}],
                     "children": [
                         {
                             "object": "block",
